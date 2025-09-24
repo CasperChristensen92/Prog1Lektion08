@@ -1,5 +1,7 @@
 package opgave02;
 
+import java.util.Arrays;
+
 public class Opgave02 {
     public static void main(String[] args) {
         int[] intArray = {23, 8, 202, -13, 42, 6, 53, 17, 22};
@@ -23,11 +25,12 @@ public class Opgave02 {
         System.out.println(hasDoublet(intArray));
     }
     //exercise 1
-    public static int[] swapFirstAndLastInt(int[] intArray){
-        int[] swapped = opgave01.Opgave01.swappedInts(intArray[0],intArray[intArray.length-1]);
-        intArray[0] = swapped[0];
-        intArray[intArray.length-1] = swapped[1];
-        return intArray;
+    public static int[] swapFirstAndLastInt(int[] ints){
+        int[] intArrayResult = Arrays.copyOf(ints,ints.length);
+        int[] swapped = opgave01.Opgave01.swappedInts(intArrayResult[0],intArrayResult[intArrayResult.length-1]);
+        intArrayResult[0] = swapped[0];
+        intArrayResult[intArrayResult.length-1] = swapped[1];
+        return intArrayResult;
     }
     public static void printNumbers(int[] integerArray) {
         for (int number : integerArray) {
@@ -36,13 +39,14 @@ public class Opgave02 {
         System.out.println(" ");
     }
     //exercise 2
-    public static int[] replaceEvenNumbers(int[] intArray){
-        for (int i = 0; i < intArray.length; i++) {
-            if (intArray[i]%2==0){
-                intArray[i] = 0;
+    public static int[] replaceEvenNumbers(int[] ints){
+        int[] intArrayResult = Arrays.copyOf(ints,ints.length);
+        for (int i = 0; i < intArrayResult.length; i++) {
+            if (intArrayResult[i]%2==0){
+                intArrayResult[i] = 0;
             }
         }
-        return intArray;
+        return intArrayResult;
     }
     // exercise 3
     public static int smallestNumber(int[] intArray){
@@ -65,11 +69,12 @@ public class Opgave02 {
         return -1;
     }
     //exercise 5
-    public static int[] pushNumbers (int[] intArray){
-        int[] pushedArrays = new int[intArray.length];
-        int lastInt = intArray[intArray.length-1];
-        for (int i = intArray.length-1; i > 0; i--) {
-            pushedArrays[i] = intArray[i-1];
+    public static int[] pushNumbers (int[] ints){
+        int[] intArrayResult = Arrays.copyOf(ints,ints.length);
+        int[] pushedArrays = new int[intArrayResult.length];
+        int lastInt = intArrayResult[intArrayResult.length-1];
+        for (int i = intArrayResult.length-1; i > 0; i--) {
+            pushedArrays[i] = intArrayResult[i-1];
         }
         pushedArrays[0]=lastInt;
         return pushedArrays;
