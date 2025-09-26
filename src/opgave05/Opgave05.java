@@ -35,12 +35,15 @@ public class Opgave05 {
                 } else {
                     System.out.println("Sorry, but wrong guess! You lose a life");
                     life -= 1;
+                    if (life == 0) {
+                        System.out.println("You ran out of lives. You lose the game! The correct word was" + correctWord);
+                        break;
+                    }
                 }
             }
             System.out.println("Guess a letter");
             try {
                 guess = scanner.next("[a-åA-Å]").charAt(0);
-
             } catch (Exception e) {
                 System.out.println("You did not enter a letter. The guess does not count");
                 String newWord = scanner.nextLine();
@@ -62,6 +65,9 @@ public class Opgave05 {
             if (!goodChoice) {
                 System.out.println("Wrong guess. You lose a life");
                 life -= 1;
+                if (life == 0){
+                    System.out.println("You ran out of lives. You lose! The correct word was: " + correctWord);
+                }
             }
             guesses.add(guess);
             System.out.println("Your tried letters are:");

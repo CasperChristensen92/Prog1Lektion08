@@ -51,9 +51,9 @@ public class Opgave02 {
     // exercise 3
     public static int smallestNumber(int[] intArray){
         int smallInt = Integer.MAX_VALUE;
-        for (int i = 0; i < intArray.length-1; i++) {
-            if (intArray[i]<smallInt){
-                smallInt = intArray[i];
+        for (int i : intArray) {
+            if (i < smallInt) {
+                smallInt = i;
             }
         }
         return smallInt;
@@ -61,7 +61,7 @@ public class Opgave02 {
     //exercise 4
     public static int smallestNumberIndex(int[] intArray){
         int smallInt = smallestNumber(intArray);
-        for (int i = 0; i < intArray.length-1; i++) {
+        for (int i = 0; i < intArray.length; i++) {
             if (smallInt==intArray[i]){
                 return i;
             }
@@ -95,7 +95,7 @@ public class Opgave02 {
     }
     //exercise 7
     public static boolean isSorted(int[] intArray){
-        for (int i = 0; i < intArray.length-2; i++) {
+        for (int i = 0; i < intArray.length-1; i++) {
             if (intArray[i]>intArray[i+1]){
                 return false;
             }
@@ -105,7 +105,7 @@ public class Opgave02 {
     //exercise 8
     public static boolean hasDoublet(int[] intArray){
         for (int i = 0; i < intArray.length-1; i++) {
-            for (int j = i+1; j < intArray.length-1; j++) {
+            for (int j = i+1; j < intArray.length; j++) {
                 if (intArray[i] == intArray[j]){
                     return true;
                 }
