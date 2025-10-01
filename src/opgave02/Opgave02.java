@@ -51,9 +51,9 @@ public class Opgave02 {
     // exercise 3
     public static int smallestNumber(int[] intArray){
         int smallInt = Integer.MAX_VALUE;
-        for (int i : intArray) {
-            if (i < smallInt) {
-                smallInt = i;
+        for (int x : intArray) {
+            if (x < smallInt) {
+                smallInt = x;
             }
         }
         return smallInt;
@@ -70,14 +70,13 @@ public class Opgave02 {
     }
     //exercise 5
     public static int[] pushNumbers (int[] ints){
-        int[] intArrayResult = Arrays.copyOf(ints,ints.length);
-        int[] pushedArrays = new int[intArrayResult.length];
-        int lastInt = intArrayResult[intArrayResult.length-1];
-        for (int i = intArrayResult.length-1; i > 0; i--) {
-            pushedArrays[i] = intArrayResult[i-1];
+        int[] pushedArray = new int[ints.length];
+        int lastInt = ints[ints.length-1];
+        for (int i = ints.length-1; i > 0; i--) {
+            pushedArray[i] = ints[i-1];
         }
-        pushedArrays[0]=lastInt;
-        return pushedArrays;
+        pushedArray[0]=lastInt;
+        return pushedArray;
     }
     // exercise 6
     public static int almostBiggestNumber(int[] intArray) {
